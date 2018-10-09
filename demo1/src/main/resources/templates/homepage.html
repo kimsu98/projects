@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<!--
+<p th:text="${'Hello ' + username}">Hello World!</p>
+<p th:text="'Hello ' + ${username}">Hello World!</p>
+-->
+<p>Hello <span th:text="${model.username}">username</span>, and welcome to the application.</p>
+<br />
+<!--
+<a href="profile.html?id=userId">View my profile</a>
+-->
+<!--  only works with single variable 
+<a th:href="@{/profile?id=} + ${model.id}" href="profile.html?id=userId">View my profile</a>
+-->
+<a th:href="@{/profile(id=${model.id},trial=1)}" href="profile.html?id=userId">View my profile</a>
+</body>
+</html>
