@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<link rel="stylesheet" href="main.css" />
+	<link rel="stylesheet" href="main.css" th:href="@{css/main.css}" />
 </head>
 <body>
 	<h1>User Profile</h1>
@@ -19,6 +19,9 @@
 			<td th:utext="${model.description}">Description goes here</td>
 		</tr>
 	</table>
+	
+	<img src="asterisk-guy.jpg" th:src="@{images/asterisk-guy.jpg}" />
+	
 	<h2>Languages spoken</h2>
 <!-- 
 	<p>You speak <span th:if="${model.languages.size() &lt; 3}" th:text="${model.languages.size()}">x</span>
