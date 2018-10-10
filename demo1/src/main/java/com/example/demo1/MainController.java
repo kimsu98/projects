@@ -36,6 +36,7 @@ public class MainController {
 		languages.add("Danish");
 		
 		model.put("languages",  languages);
+		model.put("color", "#ccc");
 		
 		return new ModelAndView("profile","model",model);
 	}
