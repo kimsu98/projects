@@ -6,8 +6,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -40,4 +44,19 @@ public class MainController {
 		
 		return new ModelAndView("profile","model",model);
 	}
+	
+	@RequestMapping("/addUser")
+	public ModelAndView addUser() {
+		return new ModelAndView("newUser", "addUserModel", new AddUserModel());
+
+	}
+	
+	@RequestMapping(value="/saveUser", method=RequestMethod.POST)
+	public String saveUser(@Valid AddUserModel addUserModel, BindingResult bindResult) {
+			if (bindResult.hasErrors()) {
+				return "newUser";
+			}
+			return "userAdded";
+	}
+
 }
