@@ -52,8 +52,9 @@ public class MainController {
 	}
 	
 	@RequestMapping(value="/saveUser", method=RequestMethod.POST)
-	public String saveUser(@Valid AddUserModel addUserModel, BindingResult bindResult) {
-			if (bindResult.hasErrors()) {
+	public String saveUser(@Valid AddUserModel addUserModel, BindingResult bindingResult) {
+			new AddUserModelValidator().validate(addUserModel,bindingResult);
+			if (bindingResult.hasErrors()) {
 				return "newUser";
 			}
 			return "userAdded";
