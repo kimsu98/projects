@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="page(title)">
+<head>
+	<title th:text="${title}">title goes here</title>
+	<link rel="stylesheet" href="main.css" th:href="@{css/main.css}" />
+</head>
+<body>
+	<div th:replace="this :: content1">content goes here</div>
+	<div th:replace="this :: content2">content goes here</div>
+</body>
+</html>
